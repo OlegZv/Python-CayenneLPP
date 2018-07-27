@@ -15,11 +15,10 @@ def decode(payload):
     pointer = 0
     try:
         while pointer < len(payload):
-            sensor = {}
-            sensor['channel'] = int(payload[pointer:pointer + 2], 16)
+            sensor = {'channel': int(payload[pointer:pointer + 2], 16)}
             pointer += 2
             sensor['name'], payload_size, action = hex_library[payload[pointer:pointer + 2]].values()
-            pointer +=2
+            pointer += 2
             sensor['value'] = action(payload[pointer:pointer + payload_size])
             pointer += payload_size
             result.append(sensor)
@@ -27,5 +26,3 @@ def decode(payload):
     except:
         print('[ERROR] Something went wrong during payload decoding.')
         return result
-
-obj = decode("067104D2FB2E0000")

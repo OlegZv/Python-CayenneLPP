@@ -16,29 +16,33 @@ def base64_to_hex(base64_data):
     return value.decode('utf-8').upper()
 
 
-def hex_to_int(hex_string):
+def hex_to_int(hex_string, signed=True):
     """Returns hex_string converted to int. Method can work with signed 2's complement any length.
 
     :param hex_string: hex string. Example 'DEADBEEF' or 'deadbeef'.
+    :param signed: boolean. True or False, indicating if hex signed. Default True
     :return: int representation of hex_string
     """
-    # get total number of bits to be able to extract MSB. If MSB=1 number is signed
-    bits = len(bytearray.fromhex(hex_string)) * 8
-    val = int('0x' + hex_string, 16)
-    # get MSB and if MSB = 1 (means number is signed) - take 2's compliment
-    if (val & (1 << (bits - 1))) != 0:  # if sign bit is set e.g., 8bit: 128-255
-        val = val - (1 << bits)  # compute negative value
-    return val
+    if signed:
+        # get total number of bits to be able to extract MSB. If MSB=1 number is signed
+        bits = len(bytearray.fromhex(hex_string)) * 8
+        val = int('0x' + hex_string, 16)
+        # get MSB and if MSB = 1 (means number is signed) - take 2's compliment
+        if (val & (1 << (bits - 1))) != 0:  # if sign bit is set e.g., 8bit: 128-255
+            val = val - (1 << bits)  # compute negative value
+        return val
+    else:
+        return int(hex_string, 16)
 
 
 def digital_input_output_presence_illuminance(data):
-    """Digital Output/Input/Presence/Illuminance | Data Resolution per bit = 1
+    """Digital Output/Input/Presence/Illuminance | Data Resolution per bit = 1, Unsigned
      All these values are the same in decoding.
 
     :param data: hex string of sensor value
     :return: int decoded value
     """
-    return hex_to_int(data)
+    return hex_to_int(data, False)
 
 
 def analog_input_output(data):
@@ -65,7 +69,7 @@ def humidity(data):
     :param data: hex string of sensor value
     :return: int decoded value
     """
-    return hex_to_int(data) / 2
+    return hex_to_int(data, False) / 2
 
 
 def accelerometer(data):
@@ -85,7 +89,7 @@ def barometer(data):
     :param data: hex string of sensor value
     :return: int decoded value
     """
-    return hex_to_int(data) / 10
+    return hex_to_int(data, False) / 10
 
 
 def gyrometer(data):
