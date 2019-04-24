@@ -1,21 +1,3 @@
-import base64
-import codecs
-
-
-# If receiving from LoRa Server use this method to decode payload from base64 to hex
-def base64_to_hex(base64_data):
-    """Takes base64 encoded string and returns hex string
-
-    :param base64_data: base64 encoded string
-    :return: decoded hex string
-    """
-    missing_padding = len(base64_data) % 4
-    if missing_padding != 0:
-        base64_data += b'=' * (4 - missing_padding)
-    value = codecs.encode(base64.b64decode(base64_data), 'hex')
-    return value.decode('utf-8').upper()
-
-
 def hex_to_int(hex_string, signed=True):
     """Returns hex_string converted to int. Method can work with signed 2's complement any length.
 
@@ -55,7 +37,7 @@ def analog_input_output(data):
 
 
 def temperature(data):
-    """Temperature | Data Resolution per bit = 0.1 °C Signed MSB
+    """Temperature | Data Resolution per bit = 0.1 degC Signed MSB
 
     :param data: hex string of sensor value
     :return: int decoded value
@@ -93,7 +75,7 @@ def barometer(data):
 
 
 def gyrometer(data):
-    """Gyrometer | 	Data Resolution per bit = 0.01 °/s Signed MSB per axis
+    """Gyrometer | 	Data Resolution per bit = 0.01 deg/s Signed MSB per axis
     Data Size: 6 bytes. x axis value = 2 bytes, y axis value = 2 bytes, z axis value = 2 bytes.
     Example: 04 D2 FB 2E 00 00 --> 04D2 - x, FB2E - y, 0000 - z.
 
@@ -106,8 +88,8 @@ def gyrometer(data):
 def gps_location(data):
     """GPS Location | Data Resolution per bit below
 
-    * Latitude : 0.0001 ° Signed MSB
-    * Longitude : 0.0001 ° Signed MSB
+    * Latitude : 0.0001 deg Signed MSB
+    * Longitude : 0.0001 deg Signed MSB
     * Altitude : 0.01 meter Signed MSB
 
     :param data: hex string of sensor value
