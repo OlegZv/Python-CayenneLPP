@@ -28,6 +28,3 @@ def decode(payload):
     except:
         print('[ERROR] Something went wrong during payload decoding.')
         return result
-
-
-print(decode('03670110056700FF'))
