@@ -4,6 +4,12 @@ Open source library for python to decode CayenneLPP format payload.
 The Cayenne Low Power Payload (LPP) provides a convenient and easy way to send data over LPWAN networks such as LoRaWAN.
 More details on CayenneLPP payload: https://github.com/myDevicesIoT/cayenne-docs
 
+## Installation
+
+To install the package use next pip command
+
+`pip install python-cayennelpp`
+
 ## Usage
 To decode payload simply use method decode() from this package
 
