@@ -1,5 +1,8 @@
 from python_cayennelpp.decoder import decode
 import pytest
+import sys
+
+version = sys.version_info
 
 
 def test_invalid_length():
@@ -9,15 +12,25 @@ def test_invalid_length():
 
 
 def test_invalid_type():
-    with pytest.raises(TypeError) as e:
-        assert decode(13)
-    assert str(e.value) == "Payload must be hex encoded string. Provided type: <class 'int'>"
+    if version.major == 2 and version.minor == 7:
+        with pytest.raises(TypeError) as e:
+            assert decode(13)
+        assert str(e.value) == "Payload must be hex encoded string. Provided type: <type 'int'>"
+    else:
+        with pytest.raises(TypeError) as e:
+            assert decode(13)
+        assert str(e.value) == "Payload must be hex encoded string. Provided type: <class 'int'>"
 
 
 def test_invalid_type2():
-    with pytest.raises(TypeError) as e:
-        assert decode(b"02670113")
-    assert str(e.value) == "Payload must be hex encoded string. Provided type: <class 'bytes'>"
+    if version.major == 2 and version.minor == 7:
+        with pytest.raises(TypeError) as e:
+            assert decode(u"02670113")
+        assert str(e.value) == "Payload must be hex encoded string. Provided type: <type 'unicode'>"
+    else:
+        with pytest.raises(TypeError) as e:
+            assert decode(b"02670113")
+        assert str(e.value) == "Payload must be hex encoded string. Provided type: <class 'bytes'>"
 
 
 def test_invalid_key(capsys):
