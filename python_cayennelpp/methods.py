@@ -33,7 +33,7 @@ def analog_input_output(data):
     :param data: hex string of sensor value
     :return: int decoded value
     """
-    return hex_to_int(data) / 100
+    return hex_to_int(data) / 100.0
 
 
 def temperature(data):
@@ -42,7 +42,7 @@ def temperature(data):
     :param data: hex string of sensor value
     :return: int decoded value
     """
-    return hex_to_int(data) / 10
+    return hex_to_int(data) / 10.0
 
 
 def humidity(data):
@@ -51,7 +51,7 @@ def humidity(data):
     :param data: hex string of sensor value
     :return: int decoded value
     """
-    return hex_to_int(data, False) / 2
+    return hex_to_int(data, False) / 2.0
 
 
 def accelerometer(data):
@@ -62,7 +62,7 @@ def accelerometer(data):
     :param data: hex string of sensor value
     :return: dictionary of x,y,z axis as keys and their values
     """
-    return {'x': hex_to_int(data[:4]) / 1000, 'y': hex_to_int(data[4:8]) / 1000, 'z': hex_to_int(data[8:]) / 1000}
+    return {'x': hex_to_int(data[:4]) / 1000.0, 'y': hex_to_int(data[4:8]) / 1000.0, 'z': hex_to_int(data[8:]) / 1000.0}
 
 
 def barometer(data):
@@ -71,7 +71,7 @@ def barometer(data):
     :param data: hex string of sensor value
     :return: int decoded value
     """
-    return hex_to_int(data, False) / 10
+    return hex_to_int(data, False) / 10.0
 
 
 def gyrometer(data):
@@ -82,7 +82,7 @@ def gyrometer(data):
     :param data: hex string of sensor value
     :return: dictionary of x,y,z axis as keys and their values
     """
-    return {'x': hex_to_int(data[:4]) / 100, 'y': hex_to_int(data[4:8]) / 100, 'z': hex_to_int(data[8:]) / 100}
+    return {'x': hex_to_int(data[:4]) / 100.0, 'y': hex_to_int(data[4:8]) / 100.0, 'z': hex_to_int(data[8:]) / 100.0}
 
 
 def gps_location(data):
@@ -95,7 +95,7 @@ def gps_location(data):
     :param data: hex string of sensor value
     :return: dictionary of lat,long,alt as key and their values
     """
-    return {'lat': hex_to_int(data[:6]) / 10000, 'long': hex_to_int(data[6:12]) / 10000, 'alt': hex_to_int(data[12:]) / 100}
+    return {'lat': hex_to_int(data[:6]) / 10000.0, 'long': hex_to_int(data[6:12]) / 10000.0, 'alt': hex_to_int(data[12:]) / 100.0}
 
 
 hex_library = {

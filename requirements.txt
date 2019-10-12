@@ -1,0 +1,4 @@
+# Development packages
+pytest
+pytest-cov
+codecov
