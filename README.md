@@ -1,8 +1,8 @@
 # Python-CayenneLPP
 [![Build Status](https://travis-ci.org/OlegSomov/Python-CayenneLPP.svg?branch=master)](https://travis-ci.org/OlegSomov/Python-CayenneLPP)
 [![codecov](https://codecov.io/gh/OlegSomov/Python-CayenneLPP/branch/master/graph/badge.svg)](https://codecov.io/gh/OlegSomov/Python-CayenneLPP)
-[![PyPI](https://img.shields.io/pypi/v/locustio.svg)](https://pypi.org/project/locustio/)
-[![PyPI](https://img.shields.io/pypi/pyversions/locustio.svg)](https://pypi.org/project/locustio/)
+[![PyPI](https://img.shields.io/pypi/v/Python-CayenneLPP)](https://pypi.org/project/Python-CayenneLPP/)
+[![PyPI](https://img.shields.io/pypi/pyversions/Python-CayenneLPP)](https://pypi.org/project/Python-CayenneLPP/)
 ## Introduction
 Open-source library for python to decode CayenneLPP format payload.
 The Cayenne Low Power Payload (LPP) provides a convenient and easy way to send data over LPWAN networks such as LoRaWAN.

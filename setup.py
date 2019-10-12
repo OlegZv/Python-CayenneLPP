@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="python-cayennelpp",
-    version="0.0.2",
+    version="0.0.3",
     author="Oleg Zvonarov",
     author_email="oleg.somov84@gmail.com",
     description="A package to decode a data encoded in a CayenneLPP format.",
@@ -18,7 +18,6 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
