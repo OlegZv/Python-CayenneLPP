@@ -89,3 +89,15 @@ def test_gps():
     expected = [{'channel': 17, 'name': 'GPS Location', 'value': {'lat': -33.8678, 'long': -63.987, 'alt': 10.0}}]
     result = decode("1188FAD50AF63C820003E8")
     assert result == expected
+
+
+def test_combination():
+    expected = [{'channel': 3, 'name': 'Temperature Sensor', 'value': -12.5}, {'channel': 7, 'name': 'Humidity Sensor', 'value': 17.0}]
+    result = decode("0367FF83076822")
+    assert result == expected
+
+
+def test_combinatio2n():
+    expected = [{'channel': 17, 'name': 'GPS Location', 'value': {'lat': -33.8678, 'long': -63.987, 'alt': 10.0}}, {'channel': 17, 'name': 'Analog Output', 'value': -23.0}]
+    result = decode("1188FAD50AF63C820003E81103F704")
+    assert result == expected
