@@ -1,6 +1,6 @@
 # Python-CayenneLPP
-[![Build Status](https://travis-ci.org/OlegSomov/Python-CayenneLPP.svg?branch=master)](https://travis-ci.org/OlegSomov/Python-CayenneLPP)
-[![codecov](https://codecov.io/gh/OlegSomov/Python-CayenneLPP/branch/master/graph/badge.svg)](https://codecov.io/gh/OlegSomov/Python-CayenneLPP)
+[![Build Status](https://travis-ci.org/OlegZv/Python-CayenneLPP.svg?branch=master)](https://travis-ci.org/OlegZv/Python-CayenneLPP)
+[![codecov](https://codecov.io/gh/OlegZv/Python-CayenneLPP/branch/master/graph/badge.svg)](https://codecov.io/gh/OlegZv/Python-CayenneLPP)
 [![PyPI](https://img.shields.io/pypi/v/Python-CayenneLPP)](https://pypi.org/project/Python-CayenneLPP/)
 [![PyPI](https://img.shields.io/pypi/pyversions/Python-CayenneLPP)](https://pypi.org/project/Python-CayenneLPP/)
 ## Introduction
