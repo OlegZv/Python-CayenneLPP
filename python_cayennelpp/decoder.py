@@ -1,7 +1,7 @@
 """Main decoder for CayenneLPP payload format."""
 
 import logging
-from typing import Any
+from typing import Any, Dict, List
 from python_cayennelpp.methods import hex_library
 
 logger = logging.getLogger(__name__)
@@ -26,7 +26,7 @@ def decode(payload: str):
         )
     # parsing payload using hex_library.
     # variable pointer represents caret in line to cut. result is returned result
-    result: list[dict[str, Any]] = []
+    result: List[Dict[str, Any]] = []
     pointer = 0
     try:
         while pointer < len(payload):

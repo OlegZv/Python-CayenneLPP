@@ -1,6 +1,6 @@
 """This module contains methods to decode CayenneLPP sensor data."""
 
-from typing import Any
+from typing import Any, Dict
 
 
 def hex_to_int(hex_string: str, signed: bool = True):
@@ -114,7 +114,7 @@ def gps_location(data: str):
     }
 
 
-hex_library: dict[str, dict[str, Any]] = {
+hex_library: Dict[str, Dict[str, Any]] = {
     "00": {
         "name": "Digital Input",
         "size": 2,
