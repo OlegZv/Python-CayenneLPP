@@ -1,0 +1,65 @@
+name: Code Quality Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  UV_SYSTEM_PYTHON: 1
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.7.8"
+          enable-cache: true
+          cache-dependency-glob: |
+            pyproject.toml
+
+      - name: Run ruff format
+        run: uv ruff . --fix
+
+      - name: Run ruff check
+        run: uv ruff .
+
+      - name: Run pylint
+        run: uv pylint python_cayennelpp
+
+      - name: Run mypy
+        run: uv mypy python_cayennelpp
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.7.8"
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+          cache-dependency-glob: |
+            pyproject.toml
+
+      - name: Run pytest
+        run: uv run python -m pytest --cov=python_cayennelpp tests/ --cov-report=xml
+
+      - name: Code ./coverage1.xml
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

@@ -1,1 +1,1 @@
-name = "python_cayennelpp"
+"""Python CayenneLPP decoder library."""
