@@ -26,16 +26,16 @@ jobs:
             pyproject.toml
 
       - name: Run ruff format
-        run: uv ruff . --fix
+        run: uv run ruff format
 
       - name: Run ruff check
-        run: uv ruff .
+        run: uv run ruff check
 
       - name: Run pylint
-        run: uv pylint python_cayennelpp
+        run: uv run pylint python_cayennelpp
 
       - name: Run mypy
-        run: uv mypy python_cayennelpp
+        run: uv run mypy python_cayennelpp
 
   test:
     runs-on: ubuntu-latest
