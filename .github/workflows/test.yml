@@ -59,7 +59,7 @@ jobs:
       - name: Run pytest
         run: uv run python -m pytest --cov=python_cayennelpp tests/ --cov-report=xml
 
-      - name: Code ./coverage1.xml
+      - name: Code Coverage
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
