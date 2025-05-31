@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "python-cayennelpp"
 dynamic = ["version"]
@@ -40,6 +44,7 @@ dev = [
     "pytest>=8.3.5",
     "pytest-cov>=5.0.0",
     "ruff>=0.11.12",
+    "setuptools-scm>=8.3.1",
 ]
 
 [[tool.uv.index]]
@@ -47,3 +52,5 @@ name = "testpypi"
 url = "https://test.pypi.org/simple/"
 publish-url = "https://test.pypi.org/legacy/"
 explicit = true
+
+[tool.setuptools_scm]
