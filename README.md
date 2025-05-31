@@ -1,6 +1,6 @@
 # Python-CayenneLPP
 [![Lint/Test](https://github.com/OlegZv/Python-CayenneLPP/actions/workflows/test.yml/badge.svg)](https://github.com/OlegZv/Python-CayenneLPP/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/OlegZv/Python-CayenneLPP/branch/master/graph/badge.svg)](https://codecov.io/gh/OlegZv/Python-CayenneLPP)
+[![codecov](https://codecov.io/gh/OlegZv/Python-CayenneLPP/branch/main/graph/badge.svg)](https://codecov.io/gh/OlegZv/Python-CayenneLPP)
 [![PyPI](https://img.shields.io/pypi/v/Python-CayenneLPP)](https://pypi.org/project/Python-CayenneLPP/)
 [![PyPI](https://img.shields.io/pypi/pyversions/Python-CayenneLPP)](https://pypi.org/project/Python-CayenneLPP/)
 

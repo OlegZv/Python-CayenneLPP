@@ -6,11 +6,12 @@ on:
       - published
 
 jobs:
-  publish-to-pypi:
+  publish-to-test-pypi:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-
+    environment:
+      name: test
 
     steps:
       # Checkout the repository
@@ -35,3 +36,35 @@ jobs:
         with:
           repository-url: https://test.pypi.org/legacy/
 
+  publish-to-pypi:
+    runs-on: ubuntu-latest
+    # if release to test PyPI fails, still run this job
+    # since we can check the reason for failure manually
+    # before approving the release
+    if: always()
+    needs: publish-to-test-pypi
+    permissions:
+      id-token: write
+    environment:
+      name: production
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Python
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.7.8"
+          enable-cache: true
+          cache-dependency-glob: |
+            pyproject.toml
+
+      - name: Build package distributions
+        run: uv build
+
+      # Publish to PyPI
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
